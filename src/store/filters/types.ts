@@ -3,7 +3,7 @@ export const CHANGE_FILTER = 'CHANGE_FILTER';
 export enum Filter {
   All = 'All',
   Incomplete = 'Incomplete',
-  Complete = 'Complete'
+  Complete = 'Complete',
 }
 
 interface ChangeFilterAction {

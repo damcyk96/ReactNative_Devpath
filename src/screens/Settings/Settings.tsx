@@ -4,11 +4,11 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import Card from '../../components/Card';
 
 const Settings = () => {
-  if (Platform.OS == 'android') {
+  if (Platform.OS === 'android') {
     return (
       <SafeAreaView>
         <Card>
-          <Text>{`${Platform.OS} is the best (nice joke ;])`}</Text>
+          <Text>{`${Platform.OS} is the best`}</Text>
         </Card>
       </SafeAreaView>
     );
@@ -17,7 +17,7 @@ const Settings = () => {
   return (
     <SafeAreaView>
       <Card>
-        <Text>{Platform.OS}</Text>
+        <Text>{`${Platform.OS} is bla bla bla`}</Text>
       </Card>
     </SafeAreaView>
   );

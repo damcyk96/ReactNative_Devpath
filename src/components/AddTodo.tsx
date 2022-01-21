@@ -12,7 +12,9 @@ const AddTodo: React.FunctionComponent = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = () => {
-    if (!todoText) return;
+    if (!todoText) {
+      return;
+    }
 
     dispatch(addTodo(todoText));
     setTodoText('');
