@@ -1,13 +1,35 @@
-import {View, Text} from 'react-native';
-import React from 'react';
-import AddHabit from './AddHabit';
+import {FlatList, StyleSheet} from 'react-native';
+import {shallowEqual, useSelector} from 'react-redux';
 
-const HabitsList = () => {
+import React from 'react';
+import {selectHabitIds} from '../../store/habits/selectors';
+import HabitItem from './HabitItem';
+
+const HabitsList: React.FC = () => {
+  const habitIds = useSelector(selectHabitIds, shallowEqual);
+  console.log(habitIds);
   return (
-    <View>
-      <AddHabit />
-    </View>
+    <>
+      <FlatList
+        data={habitIds}
+        keyExtractor={id => id.toString()}
+        renderItem={({item}) => <HabitItem id={item} />}
+        style={styles.container}
+      />
+    </>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    width: '100%',
+  },
+  filterContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    marginBottom: 20,
+    width: '100%',
+  },
+});
 
 export default HabitsList;

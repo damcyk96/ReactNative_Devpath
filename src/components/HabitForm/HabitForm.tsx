@@ -15,7 +15,7 @@ type Props = {
 const schema = yup.object().shape({
   text: yup.string().required().min(5, 'must be longer than 5'),
   difficulty: yup.number().min(0, 'minimum is 0').max(5, 'max is 5'),
-  date: yup.date().required(),
+  date: yup.date(),
 });
 
 const HabitForm = ({buttonText, defaultValues, onSubmit}: Props) => {
@@ -41,51 +41,57 @@ const HabitForm = ({buttonText, defaultValues, onSubmit}: Props) => {
   );
 
   return (
-    <View style={styles.container}>
-      <View style={styles.formRow}>
-        <Controller
-          control={control}
-          name="text"
-          render={({field: {onChange, onBlur, value}}) => (
-            <TextInput
-              mode="outlined"
-              label="text"
-              onBlur={onBlur}
-              onChangeText={onChange}
-              value={value}
-              error={!!errors.text}
-            />
-          )}
-        />
-        <Controller
-          control={control}
-          name="difficulty"
-          render={({field: {onChange, onBlur, value}}) => (
-            <TextInput
-              mode="outlined"
-              label="difficulty"
-              onBlur={onBlur}
-              onChangeText={onChange}
-              value={value}
-              error={!!errors.difficulty}
-              keyboardType="number-pad"
-            />
-          )}
-        />
-        <Controller
-          control={control}
-          name="date"
-          render={({field: {onChange, onBlur, value}}) => (
-            <TextInput
-              mode="outlined"
-              label="date"
-              onBlur={onBlur}
-              onChangeText={onChange}
-              value={value}
-              error={!!errors.date}
-            />
-          )}
-        />
+    <View>
+      <View style={styles.container}>
+        <View style={styles.formRow}>
+          <Controller
+            control={control}
+            name="text"
+            render={({field: {onChange, onBlur, value}}) => (
+              <TextInput
+                mode="outlined"
+                label="text"
+                onBlur={onBlur}
+                onChangeText={onChange}
+                value={value}
+                error={!!errors.text}
+              />
+            )}
+          />
+        </View>
+        <View style={styles.formRow}>
+          <Controller
+            control={control}
+            name="difficulty"
+            render={({field: {onChange, onBlur, value}}) => (
+              <TextInput
+                mode="outlined"
+                label="difficulty"
+                onBlur={onBlur}
+                onChangeText={onChange}
+                value={value}
+                error={!!errors.difficulty}
+                keyboardType="number-pad"
+              />
+            )}
+          />
+        </View>
+        <View style={styles.formRow}>
+          <Controller
+            control={control}
+            name="date"
+            render={({field: {onChange, onBlur, value}}) => (
+              <TextInput
+                mode="outlined"
+                label="date"
+                onBlur={onBlur}
+                onChangeText={onChange}
+                value={value}
+                error={!!errors.date}
+              />
+            )}
+          />
+        </View>
       </View>
       <View style={styles.formRow}>
         <Button
