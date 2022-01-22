@@ -19,15 +19,16 @@ const todosReducer = (
         ...state,
         {
           id: Date.now(),
-          text: action.payload,
+          text: action.payload.text,
           completed: false,
         },
       ];
     case EDIT_TODO:
       return [
-        ...state,
         {
-          text: action.payload,
+          id: action.payload.id,
+          completed: action.payload.completed,
+          text: action.payload.text,
         },
       ];
     case DELETE_TODO:

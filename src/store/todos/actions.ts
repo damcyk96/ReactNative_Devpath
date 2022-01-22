@@ -4,14 +4,15 @@ import {
   EDIT_TODO,
   TOGGLE_TODO,
   TodoActionTypes,
+  Todo,
 } from './types';
 
-export const addTodo = (todo: string): TodoActionTypes => ({
+export const addTodo = (todo: Todo): TodoActionTypes => ({
   type: ADD_TODO,
   payload: todo,
 });
 
-export const editTodo = (todo: string): TodoActionTypes => ({
+export const editTodo = (todo: Todo): TodoActionTypes => ({
   type: EDIT_TODO,
   payload: todo,
 });

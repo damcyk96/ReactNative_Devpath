@@ -4,9 +4,9 @@ export const DELETE_HABIT = 'DELETE_HABIT';
 export const TOGGLE_HABIT = 'TOGGLE_HABIT';
 
 export type Habit = {
-  id: number;
+  id?: number;
   text: string;
-  completed: boolean;
+  completed?: boolean;
   difficulty: number;
   date: Date;
 };

@@ -15,12 +15,12 @@ export interface TodoFormData {
 
 interface AddTodoAction {
   type: typeof ADD_TODO;
-  payload: string;
+  payload: Todo;
 }
 
 interface EditTodoAction {
   type: typeof EDIT_TODO;
-  payload: string;
+  payload: Todo;
 }
 
 interface DeleteTodoAction {

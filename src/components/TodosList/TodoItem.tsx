@@ -1,15 +1,15 @@
 import {StyleSheet, TouchableOpacity} from 'react-native';
-import {deleteTodo, toggleTodo} from '../store/todos/actions';
+import {deleteTodo, toggleTodo} from '../../store/todos/actions';
 import {useDispatch, useSelector} from 'react-redux';
 import {useNavigation} from '@react-navigation/native';
 
-import AppText from './AppText';
+import AppText from '../AppText';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import React from 'react';
-import {RootState} from '../store/types';
-import colors from '../config/colors';
-import {selectTodoById} from '../store/todos/selectors';
-import {screenNames} from '../navigation/screenNames';
+import {RootState} from '../../store/types';
+import colors from '../../config/colors';
+import {selectTodoById} from '../../store/todos/selectors';
+import {screenNames} from '../../navigation/screenNames';
 interface TodoItemProps {
   id: number;
 }
@@ -42,7 +42,9 @@ const TodoItem: React.FC<TodoItemProps> = ({id}) => {
       <MaterialCommunityIcons
         color={colors.blue}
         name="file-edit"
-        onPress={() => navigate(screenNames.EditTodo, {todo: todo})}
+        onPress={() => {
+          return navigate(screenNames.EditTodo, {todo: todo});
+        }}
         size={25}
         style={styles.edit}
       />

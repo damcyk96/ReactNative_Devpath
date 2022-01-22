@@ -4,7 +4,7 @@ import {Provider} from 'react-redux';
 import configureStore from './store/configureStore';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {NavigationContainer} from '@react-navigation/native';
-import MainTabs from './navigation/MainTabs';
+import AppStack from './navigation/AppStack';
 
 const store = configureStore();
 
@@ -13,7 +13,7 @@ const App: FC = () => {
     <Provider store={store}>
       <SafeAreaProvider>
         <NavigationContainer>
-          <MainTabs />
+          <AppStack />
         </NavigationContainer>
       </SafeAreaProvider>
     </Provider>

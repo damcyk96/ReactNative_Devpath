@@ -3,4 +3,9 @@ export const screenNames = {
   Settings: 'Settings',
   Habits: 'Habits',
   EditTodo: 'EditTodo',
+  AddTodo: 'AddTodo',
+  AddHabit: 'AddHabit',
+  EditHabit: 'EditHabit',
+  Home: 'Home',
+  Tabs: 'Tabs',
 };

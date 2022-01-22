@@ -12,7 +12,9 @@ export const selectTodoById = (
   id: number,
 ): Todo | undefined => state.todos.find(todo => todo.id === id);
 
-export const selectFilteredTodoIds = (state: RootState): number[] => {
+export const selectFilteredTodoIds = (
+  state: RootState,
+): (number | undefined)[] => {
   const {filter, todos} = state;
 
   switch (filter) {

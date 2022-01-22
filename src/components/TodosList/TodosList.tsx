@@ -1,12 +1,12 @@
 import {FlatList, StyleSheet, View} from 'react-native';
 import {shallowEqual, useSelector} from 'react-redux';
 
-import {Filter} from '../store/filters/types';
-import FilterButton from './FilterButton';
 import React from 'react';
 import TodoItem from './TodoItem';
-import {selectFilteredTodoIds} from '../store/todos/selectors';
-import colors from '../config/colors';
+import {selectFilteredTodoIds} from '../../store/todos/selectors';
+import FilterButton from '../FilterButton';
+import {Filter} from '../../store/filters/types';
+import colors from '../../config/colors';
 
 const TodosList: React.FC = () => {
   const todoIds = useSelector(selectFilteredTodoIds, shallowEqual);

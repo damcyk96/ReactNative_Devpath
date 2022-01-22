@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 
-import AddTodo from '../../components/AddTodo';
+import AddTodo from '../../components/TodosList/AddTodo';
 import Screen from '../../components/Screen';
 import {StyleSheet} from 'react-native';
 import TodosList from '../../components/TodosList';
