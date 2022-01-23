@@ -24,13 +24,18 @@ const todosReducer = (
         },
       ];
     case EDIT_TODO:
-      return [
-        {
-          id: action.payload.id,
-          completed: action.payload.completed,
-          text: action.payload.text,
-        },
-      ];
+      const foundedTodo = state.find(todo => todo.id === action.payload.id);
+      const foundedIndex = state.findIndex(
+        todo => todo.id === action.payload.id,
+      );
+      console.log(foundedIndex, 'dupa');
+      if (foundedTodo) {
+        console.log(foundedTodo.text, action.payload.text);
+        foundedTodo.text = action.payload.text;
+        state.splice(foundedIndex, 1, foundedTodo);
+        console.log(state);
+      }
+      return state;
     case DELETE_TODO:
       return state.filter(todo => todo.id !== action.payload);
     case TOGGLE_TODO:

@@ -21,7 +21,6 @@ const HabitsList: React.FC = () => {
   const completedHabits = useSelector((state: RootState) =>
     selectCompletedHabitsByDate(state, date),
   );
-  console.log(completedHabits.length);
   const onChange = (event, selectedDate: Date) => {
     const currentDate = selectedDate || date;
     setDate(currentDate);

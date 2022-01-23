@@ -6,7 +6,7 @@ import {yupResolver} from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import {Habit} from '../../store/habits/types';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import TagInput from 'react-native-tags-input';
+// import TagInput from 'react-native-tags-input';
 
 type Props = {
   buttonText: string;
