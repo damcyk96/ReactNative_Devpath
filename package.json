@@ -5,7 +5,7 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "link": "react-native link react-native-vector-icons",
+    "link": "react-native link",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
@@ -13,12 +13,14 @@
   "dependencies": {
     "@hookform/resolvers": "^2.8.8",
     "@react-native-async-storage/async-storage": "^1.15.14",
+    "@react-native-community/datetimepicker": "^5.1.0",
     "@react-navigation/bottom-tabs": "^6.0.9",
     "@react-navigation/drawer": "^6.1.8",
     "@react-navigation/native": "^6.0.6",
     "@react-navigation/native-stack": "^6.2.5",
     "@react-navigation/stack": "^6.0.11",
     "@types/react-native-vector-icons": "^6.4.10",
+    "dayjs": "^1.10.7",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "prettier": "^2.5.1",
@@ -28,6 +30,7 @@
     "react-native-paper": "^4.11.2",
     "react-native-safe-area-context": "^3.3.2",
     "react-native-screens": "^3.10.1",
+    "react-native-tags-input": "^1.0.10",
     "react-native-vector-icons": "^9.0.0",
     "react-redux": "^7.2.6",
     "redux": "^4.1.2",

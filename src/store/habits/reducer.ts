@@ -37,7 +37,7 @@ const habitsReducer = (
         },
       ];
     case DELETE_HABIT:
-      return state.filter(todo => todo.id !== action.payload);
+      return state.filter(habit => habit.id !== action.payload);
     case TOGGLE_HABIT:
       return state.map(habit => {
         if (habit.id !== action.payload) {

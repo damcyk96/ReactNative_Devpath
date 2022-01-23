@@ -1,10 +1,12 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useState} from 'react';
 import {View, StyleSheet} from 'react-native';
-import {Button, TextInput} from 'react-native-paper';
+import {Button, Text, TextInput} from 'react-native-paper';
 import {Controller, useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import {Habit} from '../../store/habits/types';
+import DateTimePicker from '@react-native-community/datetimepicker';
+import TagInput from 'react-native-tags-input';
 
 type Props = {
   buttonText: string;
@@ -32,12 +34,18 @@ const HabitForm = ({buttonText, defaultValues, onSubmit}: Props) => {
       text: '',
     },
   });
+  const [newDate, setNewDate] = useState(new Date());
+
+  const onChangeDate = (event, selectedDate: Date) => {
+    setNewDate(selectedDate);
+  };
 
   const handleOnSubmit = useCallback(
     (formData: Habit) => {
+      formData.date = newDate;
       onSubmit?.(formData);
     },
-    [onSubmit],
+    [newDate, onSubmit],
   );
 
   return (
@@ -58,6 +66,7 @@ const HabitForm = ({buttonText, defaultValues, onSubmit}: Props) => {
               />
             )}
           />
+          {errors.text && <Text>{errors.text.message}</Text>}
         </View>
         <View style={styles.formRow}>
           <Controller
@@ -69,28 +78,30 @@ const HabitForm = ({buttonText, defaultValues, onSubmit}: Props) => {
                 label="difficulty"
                 onBlur={onBlur}
                 onChangeText={onChange}
-                value={value}
+                value={value.toString()}
                 error={!!errors.difficulty}
                 keyboardType="number-pad"
               />
             )}
           />
+          {errors.difficulty && <Text>{errors.difficulty.message}</Text>}
         </View>
         <View style={styles.formRow}>
           <Controller
             control={control}
             name="date"
-            render={({field: {onChange, onBlur, value}}) => (
-              <TextInput
-                mode="outlined"
-                label="date"
-                onBlur={onBlur}
-                onChangeText={onChange}
-                value={value}
-                error={!!errors.date}
+            render={() => (
+              <DateTimePicker
+                testID="dateTimePicker"
+                value={newDate}
+                mode="date"
+                is24Hour={true}
+                display="spinner"
+                onChange={onChangeDate}
               />
             )}
           />
+          {errors.date && <Text>{errors.date.message}</Text>}
         </View>
       </View>
       <View style={styles.formRow}>
