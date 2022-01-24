@@ -6,6 +6,7 @@ import {
   Todo,
   TodoActionTypes,
 } from './types';
+import {insertIntoArray} from 'insert-items-immutable';
 
 const initialState: Todo[] = [];
 
@@ -24,17 +25,6 @@ const todosReducer = (
         },
       ];
     case EDIT_TODO:
-      const foundedTodo = state.find(todo => todo.id === action.payload.id);
-      const foundedIndex = state.findIndex(
-        todo => todo.id === action.payload.id,
-      );
-      console.log(foundedIndex, 'dupa');
-      if (foundedTodo) {
-        console.log(foundedTodo.text, action.payload.text);
-        foundedTodo.text = action.payload.text;
-        state.splice(foundedIndex, 1, foundedTodo);
-        console.log(state);
-      }
       return state;
     case DELETE_TODO:
       return state.filter(todo => todo.id !== action.payload);
